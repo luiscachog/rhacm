@@ -1,0 +1,21 @@
+---
+apiVersion: operator.open-cluster-management.io/v1
+kind: MultiClusterHub
+metadata:
+  name: multiclusterhub
+  namespace: open-cluster-management
+spec:
+  # nodeSelector:
+  #   node-role.kubernetes.io/infra: ""
+  # tolerations:
+  # - key: node-role.kubernetes.io/infra
+  #   effect: NoSchedule
+  #   operator: Exists
+  overrides:
+    components:
+    - name: console
+      enabled: true
+    - name: cluster-backup
+      enabled: true
+  availabilityConfig: High
+  disableHubSelfManagement: false
