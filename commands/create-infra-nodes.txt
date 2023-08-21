@@ -1,3 +1,16 @@
+# Agregar la etiqueta de infra node
 oc label node <node-name> node-role.kubernetes.io/infra=""
 
- oc get nodes
+# Verificamos que la etiqueta sea la correcta
+oc get nodes
+
+# Agregamos los taints a los nodos de infrastructura
+oc adm taint nodes <node-name> node-role.kubernetes.io/infra="":NoSchedule
+oc adm taint nodes <node-name> node-role.kubernetes.io/infra="":NoExecute
+
+# Verificar taints que fueron aplicados correctamente
+oc get nodes -o json | jq '.items[] | {node_name:.metadata.name,taints:.spec.taints[]?}'
+oc get nodes -o=custom-columns=NAME:.metadata.name,TAINTS:.spec.taints
+
+# Mover Cargas a los infra nodes
+# Depende de cada applicación
