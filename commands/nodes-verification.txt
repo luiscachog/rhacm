@@ -1,0 +1,8 @@
+# Verifica el número de nodos
+oc get nodes -o wide
+
+# Verifica las etiquetas de cada nodo
+oc get nodes --show-labels
+
+# Verifica los MachineConfigPools
+oc get mcp
