@@ -1,4 +1,5 @@
 # Verifica el número de nodos
+oc get nodes
 oc get nodes -o wide
 
 # Verifica las etiquetas de cada nodo
