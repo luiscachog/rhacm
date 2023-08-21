@@ -1,0 +1,3 @@
+oc label node <node-name> node-role.kubernetes.io/infra=""
+
+ oc get nodes
