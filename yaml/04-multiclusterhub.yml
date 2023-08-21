@@ -4,6 +4,8 @@ kind: MultiClusterHub
 metadata:
   name: multiclusterhub
   namespace: open-cluster-management
+  # labels:
+    # node-role.kubernetes.io/infra: ""
 spec:
   # nodeSelector:
   #   node-role.kubernetes.io/infra: ""
